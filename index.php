@@ -24,5 +24,28 @@ spl_autoload_register('\\Imooc\\Loader::autoload');
 //echo '<br/>';
 //echo $queue->dequeue();
 
-$db = new \Imooc\Database();
-$dbres = $db->where('id=1')->order('id')->limit();
+//$db = new \Imooc\Database();
+//$dbres = $db->where('id=1')->order('id')->limit();
+
+//$obj = new \Imooc\Object();
+//$obj->title='hello bbj';
+//echo $obj->title;
+//$obj->test('hello',123);
+
+//\Imooc\Object::test('hl',11);
+//echo $obj;
+//echo $obj('inv');
+
+
+//$db = \Imooc\Factory::createDatabase();
+$db = \Imooc\Database::getInstance();
+
+
+
+
+
+
+
+
+
+
