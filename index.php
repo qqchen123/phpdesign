@@ -38,8 +38,29 @@ spl_autoload_register('\\Imooc\\Loader::autoload');
 
 
 //$db = \Imooc\Factory::createDatabase();
-$db = \Imooc\Database::getInstance();
-
+//$db = \Imooc\Database::getInstance();
+class Page{
+	protected $strategy;
+	function index(){
+		echo 'Ad:';
+		$this->strategy->showAd();
+		echo '<br/>';
+		echo 'Category:';
+		$this->strategy->showCategory();
+		echo '<br/>';
+	}
+	function setStrategy(\Imooc\UserStrategy $strategy){
+		$this->strategy = $strategy;
+	}
+}
+$page = new Page;
+if(isset($_GET['female'])){
+	$strategy = new \Imooc\FemalStrategy();
+}else{
+	$strategy = new \Imooc\MaleStrategy();
+}
+$page->setStrategy($strategy);
+$page->index();
 
 
 
