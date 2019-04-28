@@ -39,6 +39,10 @@ spl_autoload_register('\\Imooc\\Loader::autoload');
 
 //$db = \Imooc\Factory::createDatabase();
 //$db = \Imooc\Database::getInstance();
+
+
+
+
 class Page{
 	protected $strategy;
 	function index(){
