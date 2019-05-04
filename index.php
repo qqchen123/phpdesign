@@ -78,6 +78,7 @@ class Page{
 	{
 		$user = \Imooc\Factory::getUser(1);
 		$user->username='apple2200000';
+		
 		echo $user->username;
 	}
 }
