@@ -85,29 +85,48 @@ spl_autoload_register('\\Imooc\\Loader::autoload');
 //$page = new Page();
 //$page->index();
 
+//
+//class Event extends \Imooc\EventGenorator {
+//	function trigger(){
+//		echo "event<br />\n";
+//		//update
+//		$this->notify();
+//	}
+//}
+//class Observer1 implements \Imooc\Observer {
+//	function update($event_info = NULL)
+//	{
+//		echo 'lj1<br />';
+//	}
+//}
+//class Observer2 implements \Imooc\Observer {
+//	function update($event_info = NULL)
+//	{
+//		echo 'lj2<br />';
+//	}
+//}
+//$event = new Event();
+//$event->addObserver(new Observer1());
+//$event->addObserver(new Observer2());
+//$event->trigger();
 
-class Event extends \Imooc\EventGenorator {
-	function trigger(){
-		echo "event<br />\n";
-		//update
-		$this->notify();
-	}
-}
-class Observer1 implements \Imooc\Observer {
-	function update($event_info = NULL)
-	{
-		echo 'lj1<br />';
-	}
-}
-class Observer2 implements \Imooc\Observer {
-	function update($event_info = NULL)
-	{
-		echo 'lj2<br />';
-	}
-}
-$event = new Event();
-$event->addObserver(new Observer1());
-$event->addObserver(new Observer2());
-$event->trigger();
+
+$prototype = new \Imooc\Canvas();
+$prototype->init();
+
+
+
+$canvas = clone $prototype;
+$canvas->rect(3,6,4,8);
+$canvas->draw();
+
+echo '------<br />';
+$canvas2 = clone $prototype;
+$canvas2->rect(3,6,4,8);
+$canvas2->draw();
+
+
+
+
 
 
