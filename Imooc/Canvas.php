@@ -11,6 +11,7 @@ namespace Imooc;
 
 class Canvas {
 	public $data;
+	public $decorators=[];
 
 	public function init($width =20,$height=10)
 	{
@@ -25,12 +26,14 @@ class Canvas {
 
 	public function draw()
 	{
+		$this->beforedraw();
 		foreach ($this->data as $line){
 			foreach ($line as $char){
 				echo $char;
 			}
 			echo '<br />';
 		}
+		$this->afterdraw();
 	}
 	public function rect($a1,$a2,$b1,$b2)
 	{
@@ -43,5 +46,24 @@ class Canvas {
 		}
 	}
 
+	public function addDecorator( $decorator)
+	{
+		$this->decorators[] = $decorator;
+	}
 
+	public function beforedraw()
+	{
+		foreach ($this->decorators as $decorator)
+		{
+			$decorator->beforedraw();
+		}
+	}
+	public function afterdraw()
+	{
+		$decorator = array_reverse($this->decorators);
+		foreach ($decorator as $decorator)
+		{
+			$decorator->afterdraw();
+		}
+	}
 }

@@ -110,20 +110,27 @@ spl_autoload_register('\\Imooc\\Loader::autoload');
 //$event->addObserver(new Observer2());
 //$event->trigger();
 
+//
+//$prototype = new \Imooc\Canvas();
+//$prototype->init();
+//
+//
+//
+//$canvas = clone $prototype;
+//$canvas->rect(3,6,4,8);
+//$canvas->draw();
+//
+//echo '------<br />';
+//$canvas2 = clone $prototype;
+//$canvas2->rect(3,6,4,8);
+//$canvas2->draw();
 
-$prototype = new \Imooc\Canvas();
-$prototype->init();
-
-
-
-$canvas = clone $prototype;
-$canvas->rect(3,6,4,8);
+$canvas = new \Imooc\Canvas();
+$canvas->init();
+$canvas->addDecorator(new \Imooc\ColorDrawDecorator('green'));
+$canvas->addDecorator(new \Imooc\FontSizeDrawDecorator('25px'));
+$canvas->rect(3,6,5,12);
 $canvas->draw();
-
-echo '------<br />';
-$canvas2 = clone $prototype;
-$canvas2->rect(3,6,4,8);
-$canvas2->draw();
 
 
 
