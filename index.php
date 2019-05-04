@@ -64,29 +64,50 @@ spl_autoload_register('\\Imooc\\Loader::autoload');
 //$user = new Imooc\User(1);
 //$user->username='qqqqq';
 
-class Page{
-	public function index()
-	{
-//		$user = new \Imooc\User(1);
-		$user = \Imooc\Factory::getUser(1);
-		$user->password='0000000';
+//class Page{
+//	public function index()
+//	{
+////		$user = new \Imooc\User(1);
+//		$user = \Imooc\Factory::getUser(1);
+//		$user->password='0000000';
+//
+//		$this->test();
+//	}
+//
+//	public function test()
+//	{
+//		$user = \Imooc\Factory::getUser(1);
+//		$user->username='apple2200000';
+//
+//		echo $user->username;
+//	}
+//}
+//$page = new Page();
+//$page->index();
 
-		$this->test();
-	}
 
-	public function test()
-	{
-		$user = \Imooc\Factory::getUser(1);
-		$user->username='apple2200000';
-		
-		echo $user->username;
+class Event extends \Imooc\EventGenorator {
+	function trigger(){
+		echo "event<br />\n";
+		//update
+		$this->notify();
 	}
 }
-$page = new Page();
-$page->index();
-
-
-
-
+class Observer1 implements \Imooc\Observer {
+	function update($event_info = NULL)
+	{
+		echo 'lj1<br />';
+	}
+}
+class Observer2 implements \Imooc\Observer {
+	function update($event_info = NULL)
+	{
+		echo 'lj2<br />';
+	}
+}
+$event = new Event();
+$event->addObserver(new Observer1());
+$event->addObserver(new Observer2());
+$event->trigger();
 
 
