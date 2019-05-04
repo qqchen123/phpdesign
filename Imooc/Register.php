@@ -8,7 +8,22 @@
 
 namespace Imooc;
 
+class Register
+{
+    protected static $objects;
+    
+    public static function set($alias,$object)
+    {
+    	self::$objects[$alias] = $object;
+    }
 
-class Register {
+    public static function _unset($alias)
+    {
+    	unset(self::$objects[$alias]);
+    }
 
+	public static function get($alias)
+	{
+		return self::$objects[$alias];
+    }
 }

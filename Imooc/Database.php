@@ -24,6 +24,7 @@ class Database {
 		}
 	}
 
+
 	function where($where){
 		return $this;
 	}

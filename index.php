@@ -5,7 +5,7 @@
  * Date: 2019/4/24
  * Time: 7:56 AM
  */
-define('BASEDIR',__DIR__);
+define('BASEDIR', __DIR__);
 include BASEDIR.'/Imooc/Loader.php';
 spl_autoload_register('\\Imooc\\Loader::autoload');
 /*zhan*/
@@ -36,34 +36,53 @@ spl_autoload_register('\\Imooc\\Loader::autoload');
 //echo $obj;
 //echo $obj('inv');
 
-
 //$db = \Imooc\Factory::createDatabase();
 //$db = \Imooc\Database::getInstance();
+//class Page{
+//	protected $strategy;
+//	function index(){
+//		echo 'Ad:';
+//		$this->strategy->showAd();
+//		echo '<br/>';
+//		echo 'Category:';
+//		$this->strategy->showCategory();
+//		echo '<br/>';
+//	}
+//	function setStrategy($strategy){
+//		$this->strategy = $strategy;
+//	}
+//}
+//$page = new Page;
+//if(isset($_GET['female'])){
+//	$strategy = new \Imooc\FemalStrategy();
+//}else{
+//	$strategy = new \Imooc\MaleStrategy();
+//}
+//$page->setStrategy($strategy);
+//$page->index();
+
+//$user = new Imooc\User(1);
+//$user->username='qqqqq';
+
 class Page{
-	protected $strategy;
-	function index(){
-		echo 'Ad:';
-		$this->strategy->showAd();
-		echo '<br/>';
-		echo 'Category:';
-		$this->strategy->showCategory();
-		echo '<br/>';
+	public function index()
+	{
+//		$user = new \Imooc\User(1);
+		$user = \Imooc\Factory::getUser(1);
+		$user->password='0000000';
+
+		$this->test();
 	}
-	function setStrategy(\Imooc\UserStrategy $strategy){
-		$this->strategy = $strategy;
+
+	public function test()
+	{
+		$user = \Imooc\Factory::getUser(1);
+		$user->username='apple2200000';
+		echo $user->username;
 	}
 }
-$page = new Page;
-if(isset($_GET['female'])){
-	$strategy = new \Imooc\FemalStrategy();
-}else{
-	$strategy = new \Imooc\MaleStrategy();
-}
-$page->setStrategy($strategy);
+$page = new Page();
 $page->index();
-
-
-
 
 
 
