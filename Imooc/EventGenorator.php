@@ -8,15 +8,17 @@
 
 namespace Imooc;
 
-
-abstract class EventGenorator {
-	private $observers=[];
-	function addObserver(Observer $observer){
-		$this->observers[] = $observer;
-	}
-	function notify(){
-		foreach ($this->observers as $observer){
-			$observer->update();
-		}
-	}
+abstract class EventGenorator
+{
+    private $observers = [];
+    public function addObserver(Observer $observer)
+    {
+        $this->observers[] = $observer;
+    }
+    public function notify()
+    {
+        foreach ($this->observers as $observer) {
+            $observer->update();
+        }
+    }
 }

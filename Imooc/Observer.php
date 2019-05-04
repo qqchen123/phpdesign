@@ -8,8 +8,7 @@
 
 namespace Imooc;
 
-
-interface Observer {
-	function update($event_info =NULL);
-
+interface Observer
+{
+    public function update($event_info = null);
 }

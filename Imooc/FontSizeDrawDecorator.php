@@ -8,18 +8,20 @@
 
 namespace Imooc;
 
+class FontSizeDrawDecorator
+{
+    protected $fontsize;
+    public function __construct($fontsize = '14px')
+    {
+        $this->fontsize = $fontsize;
+    }
 
-class FontSizeDrawDecorator {
-	protected $fontsize;
-	public function __construct($fontsize='14px')
-	{
-		$this->fontsize = $fontsize;
-	}
-
-	function beforedraw(){
-		echo "<div style='font-size: {$this->fontsize}'>";
-	}
-	function afterdraw(){
-		echo "</div>";
-	}
+    public function beforedraw()
+    {
+        echo "<div style='font-size: {$this->fontsize}'>";
+    }
+    public function afterdraw()
+    {
+        echo '</div>';
+    }
 }

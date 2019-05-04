@@ -8,18 +8,20 @@
 
 namespace Imooc;
 
+class ColorDrawDecorator implements DrawDecorator
+{
+    protected $color;
+    public function __construct($color = 'red')
+    {
+        $this->color = $color;
+    }
 
-class ColorDrawDecorator implements DrawDecorator {
-	protected $color;
-	public function __construct($color='red')
-	{
-		$this->color = $color;
-	}
-
-	function beforedraw(){
-		echo "<div style='color: {$this->color}'>";
-	}
-	function afterdraw(){
-		echo "</div>";
-	}
+    public function beforedraw()
+    {
+        echo "<div style='color: {$this->color}'>";
+    }
+    public function afterdraw()
+    {
+        echo '</div>';
+    }
 }

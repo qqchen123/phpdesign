@@ -8,9 +8,8 @@
 
 namespace Imooc;
 
-
-interface UserStrategy {
-	function showAd();
-	function showCategory();
-
+interface UserStrategy
+{
+    public function showAd();
+    public function showCategory();
 }

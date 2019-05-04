@@ -129,11 +129,5 @@ $canvas = new \Imooc\Canvas();
 $canvas->init();
 $canvas->addDecorator(new \Imooc\ColorDrawDecorator('green'));
 $canvas->addDecorator(new \Imooc\FontSizeDrawDecorator('25px'));
-$canvas->rect(3,6,5,12);
+$canvas->rect(3, 6, 5, 12);
 $canvas->draw();
-
-
-
-
-
-

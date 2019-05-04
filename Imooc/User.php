@@ -29,11 +29,12 @@ class User
     }
     public function __destruct()
     {
-    	$this->db->query(
-    		"update user set 
+        $this->db->query(
+            "update user set 
 								username='{$this->username}',
 								password='{$this->password}'
 					where id={$this->id}
-		");
+		"
+        );
     }
 }

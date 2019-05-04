@@ -8,8 +8,8 @@
 
 namespace Imooc;
 
-
-interface DrawDecorator {
-	function beforedraw();
-	function afterdraw();
+interface DrawDecorator
+{
+    public function beforedraw();
+    public function afterdraw();
 }

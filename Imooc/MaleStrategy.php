@@ -8,14 +8,14 @@
 
 namespace Imooc;
 
-
-class MaleStrategy implements UserStrategy {
-	public function showAd()
-	{
-		echo 'iphone6';
-	}
-	public function showCategory()
-	{
-		echo 'dian zi pro';
-	}
+class MaleStrategy implements UserStrategy
+{
+    public function showAd()
+    {
+        echo 'iphone6';
+    }
+    public function showCategory()
+    {
+        echo 'dian zi pro';
+    }
 }
